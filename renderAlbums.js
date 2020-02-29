@@ -1,10 +1,49 @@
 
 function renderAlbums(albums) {
-    return `
+    /* return `
         <div class="text-center mt-5">
             <code>${JSON.stringify(albums)}</code>
         </div>
     `
+    */
+
+    /* Overview 
+        - need to loop through each album and build their respective div's
+            - one will contain the image and title
+            - other will contain song list
+        - then add those to another div with h1 of artist
+            - this div could be a card based on the picture
+    */
+    var albumHeader = "";
+    var albumSongs = "";
+    var artistHeader = `
+        <div class="jumbotron jumbotron-fluid">
+            <h1 class="display-4">${albums.artist}</h1>
+            <hr class="my-4">
+        </div>
+    `
+    for (var i = 0; i < albums.length; i++) {
+        albumHeader = albums[i].albums.map(function(e){
+            return `
+                <div class="container flex-row justify-content-start">
+                    <img src="${e.albumCover}" />
+                    <h3>${e.title}</h3>
+                </div>
+            `
+        })
+        albumSongs = albums[i].albums.songs.map(function(e){
+            return `
+                <div class="container">
+                    <div class="row justify-content-between align-items-center border-bottom-1 border-secondary">
+                        <div class="col-1">${e.title}</div>
+                        <div class="col-1">${e.length}</div>
+                    </div>
+                </div>
+            `
+        })
+    }
+
+    
 }
 
 function albums() {
