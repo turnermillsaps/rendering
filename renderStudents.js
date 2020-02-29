@@ -1,10 +1,22 @@
 
 function renderStudents(students) {
-    return `
+    /* return `
         <div class="text-center mt-5">
             <code>${JSON.stringify(students)}</code>
         </div>
-    `
+    ` */
+
+    var attendance = students.map(function(e){
+        return `
+            <div>
+                Student: ${e.name}<br>
+                Present: ${e.isPresent}
+            </div>
+            <br>
+        `
+    });
+
+    return attendance.join('');
 }
 
 function students() {
