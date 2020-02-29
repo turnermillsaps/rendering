@@ -1,11 +1,21 @@
 
 function renderPokerHand(pokerHand) {
     // HINT: You can use <img /> tags that point to the card images in the /cards folder
-    return `
+    /* return `
         <div class="text-center mt-5">
             <code>${JSON.stringify(pokerHand)}</code>
         </div>
-    `
+    ` */
+
+    var currentHand = pokerHand.map(function(e){
+        return `
+            <div>
+                <img src="cards/${e.value}${e.suit}.png" />
+            </div>
+        `
+    })
+
+    return currentHand;
 }
 
 function pokerHand() {
