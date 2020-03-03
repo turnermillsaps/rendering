@@ -6,22 +6,24 @@ function renderAlbums(albums) {
     `
     */
 
-    /* Overview 
-        - need to loop through each album and build their respective div's
-            - one will contain the image and title
-            - other will contain song list
-        - then add those to another div with h1 of artist
-            - this div could be a card based on the picture
+    /* 
+        Current issue with for loop to build the album data:
+        - if I use albums.length, the for loop works except I get the wrong data
+        - if I use albums[i].albums.length, albums is now undefined
+        - if I try to put that to a variable and use that, then the next line is undefined as well
     */
     var albumHeader = "";
     var albumSongs = "";
+    var albumsLength = albums[0].albums.length;
+
+    console.log(albumsLength);
     var artistPage = `
         <div class="jumbotron jumbotron-fluid">
             <h1 class="display-4">${albums.artist}</h1>
             <hr class="my-4">
         </div>
     `
-    for (var i = 0; i < albums.length; i++) {
+    for (var i = 0; i < albumsLength; i++) {
         albumHeader = albums[i].albums.map(function(e){
             return `
                 <div class="container flex-row justify-content-start">
@@ -42,8 +44,7 @@ function renderAlbums(albums) {
         }) 
     }
 
-    // albumHeader = albumHeader.join('');
-    // albumSongs = albumSongs.join('');
+    console.log(albumSongs);
 
     for (var i = 0; i < albumHeader.length; i++) {
         artistPage += albumHeader[i];
