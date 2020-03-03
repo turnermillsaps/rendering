@@ -1,10 +1,41 @@
 
 function renderMovies(movies) {
-    return `
+    /* return `
         <div class="text-center mt-5">
             <code>${JSON.stringify(movies)}</code>
         </div>
-    `
+    ` */
+    var movieList = "";
+    console.log(movies.length);
+    for (var i = 0; i < movies.length; i++) {
+        movieList = movies.map(function(e){
+            return `
+                <div>
+                    <div>
+                        <img src="${e.poster}" />
+                    </div>
+                    <div>
+                        <div>
+                            ${e.title}
+                        </div>
+                        <div>
+                            ${e.year}
+                        </div>
+                        <div>
+                            <span>IMDB:</span>
+                            <span>${e.imdbRating} / 10</span>
+                        </div>
+                        <div>
+                            <span>Rotten Tomatoes:</span>
+                            <span>${e.rottenTomatoesRating * 100}%</span>
+                        </div>
+                    </div>
+                </div>
+            `
+        })
+    }
+
+    return movieList;
 }
 
 function movies() {
