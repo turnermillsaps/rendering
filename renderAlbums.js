@@ -7,23 +7,24 @@ function renderAlbums(albums) {
     */
 
     /* 
-        Current issue with for loop to build the album data:
-        - if I use albums.length, the for loop works except I get the wrong data
-        - if I use albums[i].albums.length, albums is now undefined
-        - if I try to put that to a variable and use that, then the next line is undefined as well
+        Current Issues:
+        - Fix nested for loop so that each album gets printed with its corresponding songs
+        - General styling
     */
+
     var albumHeader = "";
     var albumSongs = "";
-    var albumsLength = albums[0].albums.length;
 
-    console.log(albumsLength);
-    var artistPage = `
-        <div class="jumbotron jumbotron-fluid">
-            <h1 class="display-4">${albums.artist}</h1>
-            <hr class="my-4">
-        </div>
-    `
-    for (var i = 0; i < albumsLength; i++) {
+    for (var artistCount = 0; artistCount < albums.length; artistCount++) {
+        var artistPage = `
+            <div class="jumbotron jumbotron-fluid">
+                <h1 class="display-4">${albums[artistCount].artist}</h1>
+                <hr class="my-4">
+            </div>
+         `
+    }
+
+    for (var i = 0; i < albums.length; i++) {
         albumHeader = albums[i].albums.map(function(e){
             return `
                 <div class="container flex-row justify-content-start">
@@ -32,26 +33,30 @@ function renderAlbums(albums) {
                 </div>
             `
         })
-        albumSongs = albums[i].albums[i].songs.map(function(e){
-            return `
-                <div class="container">
-                    <div class="row justify-content-between align-items-center border-bottom-1 border-secondary">
-                        <div class="col-1">${e.title}</div>
-                        <div class="col-1">${e.length}</div>
+        for (var j = 0; j < albums[i].albums.length; j++) {
+            albumSongs = albums[i].albums[j].songs.map(function(e){
+                return `
+                    <div class="container">
+                        <div class="row justify-content-between align-items-center border-bottom-1 border-secondary">
+                            <div class="col-1">${e.title}</div>
+                            <div class="col-1">${e.length}</div>
+                        </div>
                     </div>
-                </div>
-            `
-        }) 
+              `
+            })
+            artistPage += albumHeader[j];
+            artistPage += albumSongs.join(''); 
+        }
     }
 
     console.log(albumSongs);
 
-    for (var i = 0; i < albumHeader.length; i++) {
+    /* for (var i = 0; i < albumHeader.length; i++) {
         artistPage += albumHeader[i];
         for (var j = 0; j < albumSongs.length; j++) {
             artistPage += albumSongs.join('');
         }
-    }
+    } */
 
     return artistPage;
     
