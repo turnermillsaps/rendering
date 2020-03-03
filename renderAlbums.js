@@ -1,20 +1,15 @@
+/* 
+    Current Issues:
+    - General styling
+*/
+
+
 function renderAlbums(albums) {
-    /* return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(albums)}</code>
-        </div>
-    `
-    */
-
-    /* 
-        Current Issues:
-        - Fix nested for loop so that each album gets printed with its corresponding songs
-        - General styling
-    */
-
+    // Declare empty strings for each section of the page
     var albumHeader = "";
     var albumSongs = "";
 
+    // Use for loop to iterate through each artist in case there are multiples
     for (var artistCount = 0; artistCount < albums.length; artistCount++) {
         var artistPage = `
             <div class="jumbotron jumbotron-fluid">
@@ -24,6 +19,7 @@ function renderAlbums(albums) {
          `
     }
 
+    // Nested for loop to iterate through each album and its songs, then append template literal strings to declared empty strings above
     for (var i = 0; i < albums.length; i++) {
         albumHeader = albums[i].albums.map(function(e){
             return `
@@ -49,15 +45,7 @@ function renderAlbums(albums) {
         }
     }
 
-    console.log(albumSongs);
-
-    /* for (var i = 0; i < albumHeader.length; i++) {
-        artistPage += albumHeader[i];
-        for (var j = 0; j < albumSongs.length; j++) {
-            artistPage += albumSongs.join('');
-        }
-    } */
-
+    // Return the final page
     return artistPage;
     
 }
