@@ -1,4 +1,3 @@
-
 function renderAlbums(albums) {
     /* return `
         <div class="text-center mt-5">
@@ -16,7 +15,7 @@ function renderAlbums(albums) {
     */
     var albumHeader = "";
     var albumSongs = "";
-    var artistHeader = `
+    var artistPage = `
         <div class="jumbotron jumbotron-fluid">
             <h1 class="display-4">${albums.artist}</h1>
             <hr class="my-4">
@@ -31,7 +30,7 @@ function renderAlbums(albums) {
                 </div>
             `
         })
-        albumSongs = albums[i].albums.songs.map(function(e){
+        albumSongs = albums[i].albums[i].songs.map(function(e){
             return `
                 <div class="container">
                     <div class="row justify-content-between align-items-center border-bottom-1 border-secondary">
@@ -40,9 +39,20 @@ function renderAlbums(albums) {
                     </div>
                 </div>
             `
-        })
+        }) 
     }
 
+    // albumHeader = albumHeader.join('');
+    // albumSongs = albumSongs.join('');
+
+    for (var i = 0; i < albumHeader.length; i++) {
+        artistPage += albumHeader[i];
+        for (var j = 0; j < albumSongs.length; j++) {
+            artistPage += albumSongs.join('');
+        }
+    }
+
+    return artistPage;
     
 }
 
