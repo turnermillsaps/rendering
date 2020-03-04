@@ -1,10 +1,41 @@
+/*
+    Breakdown
+    - All in one div
+    - Similar to albums where I'll need either separate or nested loops to get down into the questions
+    - Because of the lengths of options for surveys, I will actually have to split up the loops
+        - I'll have a separate loop specifically for the radio buttons
+*/
 
 function renderSurveys(surveys) {
-    return `
+    /* return `
         <div class="text-center mt-5">
             <code>${JSON.stringify(surveys)}</code>
         </div>
-    `
+    ` */
+
+    var surveyTitle = "";
+    var surveylabel = "";
+    var surveyDiv = "";
+    for (var i = 0; i < surveys.length; i++) {
+        surveyTitle = surveys.map(function(survey) {
+            return `
+                    <div>
+                        <h1>${survey.title}</h1>
+                        <hr>
+                    </div>
+            `
+        })
+        for (var j = 0; j < surveys[i].fields.length; j++) {
+            surveyLabel = surveys[i].fields.map(function(field) {
+                return `
+                    <div>
+                        <div>${field.label}</div>
+                        <div></div>
+                    </div>
+                `
+            })
+        }
+    }
 }
 
 function surveys() {
