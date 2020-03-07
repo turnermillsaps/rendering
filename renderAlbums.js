@@ -1,6 +1,7 @@
 /* 
     Current Issues:
     - General styling
+    - After Thurs 3/5/20, I realized this should be split into multiple functions
 */
 
 

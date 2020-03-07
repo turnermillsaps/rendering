@@ -1,4 +1,7 @@
-
+/*
+    Current Issues:
+    - N/A, this one is finished
+*/
 function renderRectangle(rectangle) {
     /* return `
         <div class="text-center mt-5">

@@ -1,4 +1,7 @@
-
+/*
+    Current Issues:
+    - Originally didn't see example images, need to style this one
+*/
 function renderPokerHand(pokerHand) {
     // HINT: You can use <img /> tags that point to the card images in the /cards folder
     /* return `

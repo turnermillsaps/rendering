@@ -1,4 +1,7 @@
-
+/*
+    Current Issues:
+    - N/A, got this one pretty close
+*/
 function renderRestaurants(restaurants) {
     // HINT: You can use <img /> tags that point to these playing card images: 
     // https://commons.wikimedia.org/wiki/Category:SVG_playing_cards

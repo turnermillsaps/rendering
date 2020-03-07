@@ -1,4 +1,7 @@
-
+/*
+    Current Issues:
+    - N/A, finished this one
+*/
 function renderCircles(circles) {
     // HINT: You probably need to write a for loop!
     //       Or, if you're feeling fancy, use .map() 

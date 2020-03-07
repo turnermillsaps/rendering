@@ -1,4 +1,7 @@
-
+/*
+    Current Issues:
+    - General styling
+*/
 function renderMovies(movies) {
     /* return `
         <div class="text-center mt-5">

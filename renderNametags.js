@@ -1,4 +1,7 @@
-
+/*
+    Current Issues:
+    - I completely misunderstood this exercise originally, need to go back and review example to correct the styling
+*/
 function renderNametags(nametags) {
     /* return `
         <div class="text-center mt-5">

@@ -1,4 +1,7 @@
-
+/*
+    Current Issues:
+    - Misunderstood exercise and didn't see example pictures, this needs major styling
+*/
 function renderStudents(students) {
     /* return `
         <div class="text-center mt-5">

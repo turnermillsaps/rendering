@@ -1,3 +1,7 @@
+/*
+    Current Issues:
+    - Left off where we left it in class, so pretty close but could use styling and clean up comments
+*/
 function renderSurveys(surveys) {
     var surveyHtmlArray = [];
     // We need to iterate over the surveys variable
